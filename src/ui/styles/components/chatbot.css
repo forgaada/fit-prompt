@@ -44,7 +44,7 @@
 }
 
 .user-message {
-    background-color: var(--main-red);
+    background-color: var(--main-blue);
     color: var(--secondary-text);
     margin-left: auto;
 }
@@ -71,7 +71,7 @@ input {
 
 button {
     padding: 12px 24px;
-    background-color: var(--main-red);
+    background-color: var(--main-blue);
     color: var(--secondary-text);
     border: none;
     border-radius: 12px;

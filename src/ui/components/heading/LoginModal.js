@@ -125,7 +125,7 @@ const LoginModal = ({isOpen, toggleHandler}) => {
                 <ModalFooter>
                     <Row>
                         <Col>
-                            <Button onClick={logInUser} className='main-red' id='data-cy-login-button'>Log in</Button>
+                            <Button onClick={logInUser} className='main-blue' id='data-cy-login-button'>Log in</Button>
                         </Col>
                         <Col>
                             <Button onClick={toggleHandler}>Cancel</Button>

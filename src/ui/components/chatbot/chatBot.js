@@ -106,10 +106,10 @@ const Chatbot = () => {
                     placeholder="Type a message..."
                     disabled={isLoading}
                 />
-                <Button id="sendButton" className="main-red" type="submit" disabled={isLoading}>
+                <Button id="sendButton" className="main-blue" type="submit" disabled={isLoading}>
                     <FontAwesomeIcon icon={faPaperPlane} size='m' className='opacity-75'/>
                 </Button>
-                <Button id="clearMessagesButton" className="main-red" type="button" onClick={handleClearMessages}
+                <Button id="clearMessagesButton" className="main-blue" type="button" onClick={handleClearMessages}
                         disabled={isLoading}>
                     <FontAwesomeIcon icon={faTrash} size='m' className='opacity-75'/>
                 </Button>

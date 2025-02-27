@@ -49,7 +49,7 @@ const SettingsModal = ({ isOpen, toggleHandler }) => {
                     </div>
                 </ModalBody>
                 <div className="modal-footer">
-                    <Button className="main-red" onClick={updateSettings}>Save</Button>
+                    <Button className="main-blue" onClick={updateSettings}>Save</Button>
                     <Button onClick={toggleHandler}>Cancel</Button>
                 </div>
             </Modal>

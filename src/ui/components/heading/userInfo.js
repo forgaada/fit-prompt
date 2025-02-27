@@ -71,7 +71,7 @@ const UserInfo = () => {
                 <ModalFooter>
                     <Row>
                         <Col>
-                            <Button onClick={signOut} className='main-red' id='data-cy-signout-button'>Sign out</Button>
+                            <Button onClick={signOut} className='main-blue' id='data-cy-signout-button'>Sign out</Button>
                         </Col>
                     </Row>
                     <Row>

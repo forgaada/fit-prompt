@@ -1,14 +1,14 @@
 
-.main-red, .main-red:focus {
-    background-color: var(--main-red);
-    border: 1px solid var(--main-red);
+.main-blue, .main-blue:focus {
+    background-color: var(--main-blue);
+    border: 1px solid var(--main-blue);
 }
 
-.main-red:hover, .main-red:active {
-    background-color: #ac3138;
-    border: 1px solid #ac3138;
+.main-blue:hover, .main-blue:active {
+    background-color: #142a57;
+    border: 1px solid #093571;
 }
 
 .fa-icon-red:hover, .fa-icon-red:active {
-    color: var(--main-red);
+    color: var(--main-blue);
 }
