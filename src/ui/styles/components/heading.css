@@ -20,3 +20,17 @@
 .page-logo {
     margin-left: 20px;
 }
+
+.email-avatar {
+    border-radius: 50%;
+    background-color: var(--main-gray);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 36px;
+    height: 36px;
+    margin-left: 10px;
+    margin-bottom: 6px;
+}

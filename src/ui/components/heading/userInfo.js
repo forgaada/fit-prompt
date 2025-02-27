@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../../../index";
 import {signOutUser} from "../../../redux/actions/userActions";
 import _ from 'lodash';
+import EmailAvatar from "./emailAvatar";
 
 /**
  * Field containing information about signed user (with modal window).
@@ -49,10 +50,9 @@ const UserInfo = () => {
         <>
             <div className='d-flex align-items-center cursor-pointer fa-icon-red' style={{marginRight: '15px'}}
                  onClick={!_.isEmpty(loggedUser) ? toggle : toggleLogIn}>
-                <FontAwesomeIcon icon={faUser} className='fa-sm cursor-pointer secondary-text' style={{marginBottom: '5px'}}></FontAwesomeIcon>
+                {/*<FontAwesomeIcon icon={faUser} className='fa-sm cursor-pointer secondary-text' style={{marginBottom: '5px'}}></FontAwesomeIcon>*/}
                 {!_.isEmpty(loggedUser) ?
-                    <Label style={{marginLeft: '10px'}} className='cursor-pointer fw-semibold secondary-text' id='data-cy-signout-label'>{loggedUser.email|| 'Anonymous'}</Label>
-                    :
+                    <EmailAvatar email={loggedUser.email || 'Anonymous'} /> :
                     <Label style={{marginLeft: '10px'}} className='cursor-pointer fw-semibold secondary-text' id='data-cy-login-label'>Log in</Label>
                 }
             </div>

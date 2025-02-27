@@ -65,7 +65,7 @@ const Chatbot = () => {
     if (_.isEmpty(loggedUser)) {
         return (
             <div className="chatbot-login-alert">
-                <h2>Please log in to use the chatbot</h2>
+                <h2>Please log in</h2>
                 <p>You need to be logged in to access the chatbot feature.</p>
             </div>
         );
