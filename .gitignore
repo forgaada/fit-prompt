@@ -3,8 +3,6 @@
 /.firebase
 .firebaserc
 .firebase
-database.rules.json
-firebase.json
 
 # dependencies
 /node_modules
