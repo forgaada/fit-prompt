@@ -1,0 +1,22 @@
+@import "../variables.css";
+
+.heading-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.11);
+}
+
+.heading-label {
+    color: var(--secondary-text) !important;
+    font-size: 24px !important;
+    font-weight: 510 !important;
+    border: none !important;
+    margin-left: 15px;
+}
+
+.page-logo {
+    margin-left: 20px;
+}
