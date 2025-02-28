@@ -15,20 +15,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Set up environment variables from GitHub secrets
-      - name: Set environment variables
-        run: |
-          echo "REACT_APP_FIREBASE_API_KEY=${{ secrets.REACT_APP_FIREBASE_API_KEY }}" >> $GITHUB_ENV
-          echo "REACT_APP_FIREBASE_APP_ID=${{ secrets.REACT_APP_FIREBASE_APP_ID }}" >> $GITHUB_ENV
-          echo "REACT_APP_FIREBASE_APP_DOMAIN=${{ secrets.REACT_APP_FIREBASE_APP_DOMAIN }}" >> $GITHUB_ENV
-          echo "REACT_APP_GROQ_API_KEY=${{ secrets.REACT_APP_GROQ_API_KEY }}" >> $GITHUB_ENV
+      # Setup Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
-      # Install dependencies and build the project
-      - run: npm ci --force
-      - run: npm run build
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci --force
+
+      # Build the project with environment variables from GitHub Variables
+      - name: Build React App
+        env:
+          REACT_APP_FIREBASE_API_KEY: ${{ vars.REACT_APP_FIREBASE_API_KEY }}
+          REACT_APP_FIREBASE_APP_ID: ${{ vars.REACT_APP_FIREBASE_APP_ID }}
+          REACT_APP_FIREBASE_APP_DOMAIN: ${{ vars.REACT_APP_FIREBASE_APP_DOMAIN }}
+          REACT_APP_GROQ_API_KEY: ${{ vars.REACT_APP_GROQ_API_KEY }}
+        run: npm run build
 
       # Deploy to Firebase Hosting
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIT_PROMPT }}
