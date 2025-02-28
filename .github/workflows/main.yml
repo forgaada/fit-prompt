@@ -20,3 +20,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIT_PROMPT }}
           projectId: fit-prompt
+          channelId: live  # Explicitly set to deploy to the live site
