@@ -1,6 +1,6 @@
 import Chatbot from "../components/chatbot/chatBot";
 
-const HomeScreen = () => {
+const ChatScreen = () => {
     return(
         <div className='main-content'>
             <Chatbot />
@@ -8,4 +8,4 @@ const HomeScreen = () => {
     )
 }
 
-export default HomeScreen;
+export default ChatScreen;

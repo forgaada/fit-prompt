@@ -3,7 +3,7 @@ Simple web application for creating clever prompts that will get you fit.
 
 (chatbot functionality is available using free Groq API. More info here: https://groq.com/)
 
-Try running demo on: https://fit-prompt.web.app/home
+Try running demo on: https://fit-prompt.web.app/
 
 ## Available Scripts
 
