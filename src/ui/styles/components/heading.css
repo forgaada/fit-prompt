@@ -10,15 +10,18 @@
 }
 
 .heading-label {
-    color: var(--secondary-text) !important;
-    font-size: 24px !important;
-    font-weight: 510 !important;
-    border: none !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ffa500, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     margin-left: 15px;
 }
 
 .page-logo {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .email-avatar {
@@ -48,4 +51,10 @@
     margin-bottom: 10px;
     width: 96px;
     height: 96px;
+}
+
+@media (max-width: 768px) {
+    .page-logo {
+        margin-left: 0;
+    }
 }
