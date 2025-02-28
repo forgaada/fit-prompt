@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Modal, ModalBody, Button, FormGroup, Label, Input } from 'reactstrap';
+import {Modal, ModalBody, Button, FormGroup, Label, Input, ModalHeader} from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentNodes } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,6 +23,7 @@ const SettingsModal = ({ isOpen, toggleHandler }) => {
     return (
         <>
             <Modal isOpen={isOpen} size="lg" centered>
+                <ModalHeader toggle={toggleHandler} style={{borderBottom: 'none'}}/>
                 <ModalBody>
                     <div className='d-flex flex-column'>
                         <FontAwesomeIcon icon={faCommentNodes} size='6x' className='mb-2 opacity-25'/>
@@ -50,7 +51,6 @@ const SettingsModal = ({ isOpen, toggleHandler }) => {
                 </ModalBody>
                 <div className="modal-footer">
                     <Button className="main-blue" onClick={updateSettings}>Save</Button>
-                    <Button onClick={toggleHandler}>Cancel</Button>
                 </div>
             </Modal>
         </>

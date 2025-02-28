@@ -7,7 +7,7 @@ import {
     Label,
     Modal,
     ModalBody,
-    ModalFooter,
+    ModalFooter, ModalHeader,
     Row
 } from "reactstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -96,6 +96,7 @@ const LoginModal = ({isOpen, toggleHandler}) => {
     return (
         <>
             <Modal isOpen={isOpen} size={"lg"} centered>
+                <ModalHeader toggle={toggleHandler} style={{borderBottom: 'none'}}/>
                 <ModalBody>
                     <div className='d-flex flex-column'>
                         <FontAwesomeIcon icon={faUser} size='7x' className='mb-2 opacity-25'/>
@@ -125,10 +126,7 @@ const LoginModal = ({isOpen, toggleHandler}) => {
                 <ModalFooter>
                     <Row>
                         <Col>
-                            <Button onClick={logInUser} className='main-blue' id='data-cy-login-button'>Log in</Button>
-                        </Col>
-                        <Col>
-                            <Button onClick={toggleHandler}>Cancel</Button>
+                            <Button onClick={logInUser} className='main-blue'>Log in</Button>
                         </Col>
                     </Row>
                 </ModalFooter>
