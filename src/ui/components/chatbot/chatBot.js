@@ -98,7 +98,7 @@ const Chatbot = () => {
                 {isLoading && <div className="bot-message">Thinking...</div>}
             </div>
 
-            <Form onSubmit={handleSendMessage}>
+            <Form onSubmit={handleSendMessage} className='chatbot-form'>
                 <Input
                     type="text"
                     value={input}

@@ -1,0 +1,6 @@
+[
+  {"question": "What is you sex?", "answers": ["male", "female"]},
+  {"question": "How old are you?", "answers": ["0-18", "19-25", "26-39", "40-59", "60+"]},
+  {"question": "What is your ultimate goal?", "answers": ["loose weight", "gain muscle", "stay fit"]},
+  {"question": "How ofter do you go to the gym?", "answers": ["once a week", "2 - 4 times a week", "5+ times a week"]}
+]

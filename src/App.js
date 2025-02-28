@@ -4,6 +4,7 @@ import Heading from "./ui/structure/Heading";
 import {Container, Row} from "reactstrap";
 import PageNotFound from "./ui/pages/PageNotFound";
 import ChatScreen from "./ui/pages/ChatScreen";
+import FitnessSurvey from "./ui/components/survey/fitnessSurvey";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                         <Routes>
                             <Route path='/' element={<Navigate to="/chat" />} />
                             <Route exact path='/chat' element={<ChatScreen />} />
+                            <Route exact path='/survey' element={<FitnessSurvey />} />
                             <Route path='*' element={<PageNotFound />} />
                         </Routes>
                     </Suspense>

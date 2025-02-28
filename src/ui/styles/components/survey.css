@@ -1,0 +1,24 @@
+.survey-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    align-self: center;
+    background-color: var(--main-bg-color);
+}
+
+.survey-form-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.survey-button {
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .survey-form-group {
+        flex-direction: column;
+    }
+}
