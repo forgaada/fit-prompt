@@ -18,9 +18,9 @@ const FitnessSurvey = () => {
     };
 
     return (
-        <Container className='d-flex justify-content-center align-items-center w-75'>
+        <Container className='d-flex justify-content-center align-items-center survey-form-container'>
             <Form onSubmit={handleSubmit} className="survey-form">
-                <h4 className='mb-4 fw-semibold'>Tell us something more about yourself...</h4>
+                <h4 className='mb-4 fw-semibold'>Tell us something more about yourself</h4>
                 {questions.map((questionObj, qIndex) => (
                     <div key={qIndex} className='d-flex flex-column mb-4'>
                         <Label className="fw-bold mb-3">{questionObj.question}</Label>
