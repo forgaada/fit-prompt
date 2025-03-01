@@ -18,6 +18,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-left: 15px;
+    width: 150px;
 }
 
 .page-logo {
@@ -53,8 +54,44 @@
     height: 96px;
 }
 
+.page-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    justify-items: end;
+    align-items: end;
+    align-content: end;
+    flex-grow: 1;
+}
+
+.nav-icon {
+    width: 30px;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.nav-icon-active {
+    border-bottom: 5px solid white;
+}
+.nav-icon-inactive {
+    border-bottom: 5px solid transparent;
+}
+
+.nav-icon:hover {
+    border-bottom: 5px solid white;
+}
+
 @media (max-width: 768px) {
     .page-logo {
         margin-left: 0;
+    }
+    .nav-icon {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

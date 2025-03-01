@@ -24,11 +24,10 @@ const UserInfo = () => {
 
     return (
         <>
-            <div className='d-flex align-items-center cursor-pointer fa-icon-red' style={{marginRight: '15px'}}
-                 onClick={!_.isEmpty(loggedUser) ? toggleUserInfo : toggleLogIn}>
+            <div className='d-flex align-items-center cursor-pointer fa-icon-red justify-content-center' style={{width: '70px'}}>
                 {!_.isEmpty(loggedUser) ?
-                    <EmailAvatar email={loggedUser.email || 'Anonymous'} /> :
-                    <Label style={{marginLeft: '10px'}} className='cursor-pointer fw-semibold secondary-text' id='data-cy-login-label'>Log in</Label>
+                    <EmailAvatar onClick={toggleUserInfo} email={loggedUser.email || 'Anonymous'} /> :
+                    <Label onClick={toggleLogIn} style={{marginLeft: '10px'}} className='cursor-pointer fw-semibold secondary-text' id='data-cy-login-label'>Log in</Label>
                 }
             </div>
             <UserInfoModal isOpen={showModal} toggleHandler={toggleUserInfo}/>

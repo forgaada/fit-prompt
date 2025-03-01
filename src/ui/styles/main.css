@@ -60,6 +60,19 @@ p {
     margin-left: 5px;
 }
 
+.ml-10-px {
+    margin-left: 10px;
+}
+
+
+.ml-15-px {
+    margin-left: 15px;
+}
+
+.ml-20-px {
+    margin-left: 20px;
+}
+
 .mr-25-px {
     margin-right: 25px;
 }
