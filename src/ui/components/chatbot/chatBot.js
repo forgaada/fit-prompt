@@ -89,8 +89,15 @@ const Chatbot = () => {
 
     const renderMessage = (text) => {
         const formattedText = text
-            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-            .replace(/\*(.*?)\*/g, '<em>$1</em>');
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+            .replace(/\*(.*?)\*/g, '<em>$1</em>') // Italic
+            .replace(/\n/g, '<br/>') // New lines
+            .replace(/\d+\.\s(.*?)(?=\n|$)/g, '<ol><li>$1</li></ol>') // Ordered list
+            .replace(/-\s(.*?)(?=\n|$)/g, '<ul><li>$1</li></ul>') // Unordered list
+            .replace(/`(.*?)`/g, '<code>$1</code>') // Inline code
+            .replace(/#{1}\s(.*?)(?=\n|$)/g, '<h1>$1</h1>') // H1 headers
+            .replace(/#{2}\s(.*?)(?=\n|$)/g, '<h2>$1</h2>') // H2 headers
+            .replace(/#{3}\s(.*?)(?=\n|$)/g, '<h3>$1</h3>'); // H3 headers
         return { __html: formattedText };
     };
 

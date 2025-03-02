@@ -15,7 +15,7 @@ export const getGroqChatCompletion = async (messages, model) => {
             ],
             model: model,
             temperature: 0.5,
-            max_completion_tokens: 1024,
+            max_completion_tokens: 2024,
             top_p: 1,
             stop: null,
             stream: false,
