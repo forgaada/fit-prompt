@@ -15,7 +15,7 @@ export const getGroqChatCompletion = async (messages, model) => {
             ],
             model: model,
             temperature: 0.5,
-            max_completion_tokens: 512,
+            max_completion_tokens: 1024,
             top_p: 1,
             stop: null,
             stream: false,
@@ -26,3 +26,14 @@ export const getGroqChatCompletion = async (messages, model) => {
         return "Sorry, I encountered an error while processing your request.";
     }
 };
+
+export const generateFitnessPrompt = (survey) => {
+    let prompt = "Based on the following survey answers, create a personalized fitness recommendation:\n";
+
+    for (const [question, answer] of Object.entries(survey)) {
+        prompt += `${question} ${answer}\n`;
+    }
+
+    prompt += "Please provide a workout plan tailored to these answers.";
+    return prompt;
+}

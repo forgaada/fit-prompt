@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
-import { getGroqChatCompletion } from '../../../core/utils/apiRequest';
+import React, {useState, useEffect, useRef, useCallback} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {generateFitnessPrompt, getGroqChatCompletion} from '../../../core/utils/apiRequest';
 import { Button, Form, Input, Tooltip } from 'reactstrap';
 import _ from 'lodash';
 import { faPaperPlane, faTrash, faComments, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SettingsModal from './SettingsModal';
+import {deleteSurvey} from "../../../redux/actions/surveyActions";
 
 const Chatbot = () => {
     const [messages, setMessages] = useState([]);
@@ -15,19 +16,60 @@ const Chatbot = () => {
     const [sendTooltipOpen, setSendTooltipOpen] = useState(false);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const chatMessagesRef = useRef(null);
+    const initialSurveySent = useRef(false);
+    const dispatch = useDispatch();
 
     const loggedUser = useSelector((state) => state.user?.user);
     const model = useSelector((state) => state.settings?.settings?.model);
+    const survey = useSelector((state) => state.survey?.survey);
 
     const toggleClearTooltip = () => setClearTooltipOpen(!clearTooltipOpen);
     const toggleSendTooltip = () => setSendTooltipOpen(!sendTooltipOpen);
     const toggleSettingsModal = () => setIsSettingsOpen(!isSettingsOpen);
+
+    /**
+     * Sends new messages list to complete to Groq API.
+     */
+    const sendNewMessages = useCallback(async (newMessages) => {
+        try {
+            const response = await getGroqChatCompletion(newMessages, model);
+            setMessages(prevMessages => [...prevMessages, { text: response, isUser: false }]);
+        } catch (error) {
+            console.error('Error in handleSendMessage:', error);
+            setMessages(prevMessages => [...prevMessages, { text: 'Sorry, an error occurred.', isUser: false }]);
+        } finally {
+            setIsLoading(false);
+        }
+    }, [model]);
+
 
     useEffect(() => {
         if (chatMessagesRef.current) {
             chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
         }
     }, [messages]);
+
+    useEffect(() => {
+        async function sendInitialSurveyMessage() {
+            if (initialSurveySent.current) return
+            initialSurveySent.current = true;
+
+            const input = generateFitnessPrompt(survey);
+            const newMessages = [{text: input, isUser: true}];
+            setMessages(newMessages);
+            setIsLoading(true);
+
+            await sendNewMessages(newMessages);
+        }
+
+        if (!_.isEmpty(survey)) {
+            sendInitialSurveyMessage()
+                .catch(err => console.error("Error during chat completion", err))
+                .finally(() => dispatch(deleteSurvey()));
+        }
+
+    }, [survey, sendNewMessages, dispatch]);
+
 
     const handleSendMessage = async (e) => {
         e.preventDefault();
@@ -38,17 +80,7 @@ const Chatbot = () => {
         setInput('');
         setIsLoading(true);
 
-        console.log(model);
-
-        try {
-            const response = await getGroqChatCompletion(newMessages, model);
-            setMessages(prevMessages => [...prevMessages, { text: response, isUser: false }]);
-        } catch (error) {
-            console.error('Error in handleSendMessage:', error);
-            setMessages(prevMessages => [...prevMessages, { text: 'Sorry, an error occurred.', isUser: false }]);
-        } finally {
-            setIsLoading(false);
-        }
+        await sendNewMessages(newMessages);
     };
 
     const handleClearMessages = () => {

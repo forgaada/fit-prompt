@@ -22,7 +22,11 @@
 
 .survey-button {
     align-self: center;
-    margin-bottom: 20px;
+}
+
+
+input[type=radio]{
+    transform:scale(0.85);
 }
 
 @media (max-width: 768px) {

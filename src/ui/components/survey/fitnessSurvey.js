@@ -1,8 +1,14 @@
 import React, {useState} from 'react';
 import {Form, FormGroup, Label, Input, Button, Container} from 'reactstrap';
 import questions from './questions.json';
+import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {sendSurvey} from "../../../redux/actions/surveyActions";
 
 const FitnessSurvey = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [selectedOptions, setSelectedOptions] = useState({});
 
     const handleOptionChange = (question, option) => {
@@ -14,7 +20,8 @@ const FitnessSurvey = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(selectedOptions);
+        navigate('/chat')
+        dispatch(sendSurvey(selectedOptions))
     };
 
     return (
@@ -35,7 +42,7 @@ const FitnessSurvey = () => {
                                             checked={selectedOptions[questionObj.question] === option}
                                             onChange={() => handleOptionChange(questionObj.question, option)}
                                         />
-                                        <span style={{marginLeft: '5px', marginRight: '5px'}}>{option}</span>
+                                        <span style={{marginLeft: '5px', marginRight: '10px'}}>{option}</span>
                                     </Label>
                                 </FormGroup>
                             ))}

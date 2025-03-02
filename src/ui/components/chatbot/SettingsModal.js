@@ -36,7 +36,6 @@ const SettingsModal = ({ isOpen, toggleHandler }) => {
                                     <Label check>
                                         <Input
                                             type="radio"
-                                            size="3x"
                                             name="model"
                                             value={model}
                                             checked={selectedModel === model}
