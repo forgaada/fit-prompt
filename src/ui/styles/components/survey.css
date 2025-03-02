@@ -3,6 +3,7 @@
 }
 
 .survey-form {
+    min-width: 600px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -35,15 +36,30 @@ input[type=radio] {
     transform: scale(0.85);
 }
 
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+    margin-bottom: 20px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #007bff;
+    transition: width 0.3s ease-in-out;
+}
+
 @media (max-width: 768px) {
     .survey-form-container {
         width: 95%;
     }
     .survey-form {
         padding: 25px;
+        min-width: 0;
     }
     .pagination-buttons {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
     }
 }
