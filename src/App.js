@@ -14,7 +14,7 @@ function App() {
                 <Row className=''>
                     <Suspense>
                         <Routes>
-                            <Route path='/' element={<Navigate to="/chat" />} />
+                            <Route path='/' element={<Navigate to="/survey" />} />
                             <Route exact path='/chat' element={<ChatScreen />} />
                             <Route exact path='/survey' element={<FitnessSurvey />} />
                             <Route path='*' element={<PageNotFound />} />

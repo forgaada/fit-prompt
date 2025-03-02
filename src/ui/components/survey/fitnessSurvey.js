@@ -2,14 +2,17 @@ import React, {useState} from 'react';
 import {Form, FormGroup, Label, Input, Button, Container} from 'reactstrap';
 import questions from './questions.json';
 import {useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {sendSurvey} from "../../../redux/actions/surveyActions";
+import _ from "lodash";
 
 const FitnessSurvey = () => {
+    const [selectedOptions, setSelectedOptions] = useState({});
+
+    const loggedUser = useSelector((state) => state.user?.user);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const [selectedOptions, setSelectedOptions] = useState({});
 
     const handleOptionChange = (question, option) => {
         setSelectedOptions((prev) => ({
@@ -23,6 +26,15 @@ const FitnessSurvey = () => {
         navigate('/chat')
         dispatch(sendSurvey(selectedOptions))
     };
+
+    if (_.isEmpty(loggedUser)) {
+        return (
+            <div className="chatbot-login-alert">
+                <h2>Please log in</h2>
+                <p>You need to be logged in to access the chatbot feature.</p>
+            </div>
+        );
+    }
 
     return (
         <Container className='d-flex justify-content-center align-items-center survey-form-container'>
