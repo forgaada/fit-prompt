@@ -1,6 +1,20 @@
 [
-  {"question": "What is you sex?", "answers": ["male", "female"]},
-  {"question": "How old are you?", "answers": ["0-18", "19-25", "26-39", "40-59", "60+"]},
-  {"question": "What is your ultimate goal?", "answers": ["loose weight", "gain muscle", "stay fit"]},
-  {"question": "How ofter do you go to the gym?", "answers": ["once a week", "2 - 4 times a week", "5+ times a week"]}
+  {"question": "What is your biological sex?", "answers": ["Male", "Female"]},
+  {"question": "What is your age range?", "answers": ["18-25", "26-35", "36-45", "46-55", "56-65", "66+"]},
+  {"question": "What is your current fitness level?", "answers": ["Beginner", "Intermediate", "Advanced"]},
+  {"question": "What is your primary fitness goal?", "answers": ["Lose weight", "Build muscle", "Improve cardiovascular health", "Increase flexibility", "Enhance overall fitness"]},
+  {"question": "How many days per week can you commit to exercise?", "answers": ["1-2", "3-4", "5-6", "7"]},
+  {"question": "How much time can you dedicate to each workout session?", "answers": ["15-30 minutes", "30-45 minutes", "45-60 minutes", "60+ minutes"]},
+  {"question": "Do you have access to a gym or prefer home workouts?", "answers": ["Gym", "Home", "Both"]},
+  {"question": "Do you have any pre-existing medical conditions?", "answers": ["None", "Cardiovascular issues", "Joint problems", "Back pain", "Other"]},
+  {"question": "What is your current diet like?", "answers": ["Balanced", "High-protein", "Low-carb", "Vegetarian/Vegan", "No specific diet"]},
+  {"question": "How would you describe your stress levels?", "answers": ["Low", "Moderate", "High"]},
+  {"question": "How is your sleep quality?", "answers": ["Poor", "Fair", "Good", "Excellent"]},
+  {"question": "Do you have any specific areas you want to focus on?", "answers": ["Upper body", "Lower body", "Core", "Full body"]},
+  {"question": "What type of exercises do you enjoy?", "answers": ["Weightlifting", "Cardio", "Yoga/Pilates", "High-Intensity Interval Training (HIIT)", "Sports"]},
+  {"question": "Do you have any injuries or limitations?", "answers": ["None", "Shoulder", "Knee", "Back", "Other"]},
+  {"question": "What is your current body composition goal?", "answers": ["Lose fat", "Gain muscle", "Maintain current composition"]},
+  {"question": "How would you rate your nutrition knowledge?", "answers": ["Beginner", "Intermediate", "Advanced"]},
+  {"question": "Are you interested in tracking your progress?", "answers": ["Yes, regularly", "Occasionally", "No"]},
+  {"question": "Do you prefer group classes or individual workouts?", "answers": ["Group classes", "Individual workouts", "Mix of both"]}
 ]
