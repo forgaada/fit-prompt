@@ -43,10 +43,14 @@ const Chatbot = () => {
 
 
     useEffect(() => {
-        if (chatMessagesRef.current) {
-            chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+        if (chatMessagesRef.current && messages.length > 0) {
+            const lastMessage = chatMessagesRef.current.lastElementChild;
+            if (lastMessage) {
+                lastMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     }, [messages]);
+
 
     useEffect(() => {
         async function sendInitialSurveyMessage() {
@@ -116,7 +120,7 @@ const Chatbot = () => {
                 {messages.length === 0 && !isLoading && (
                     <div className="empty-chat-message">
                         <FontAwesomeIcon icon={faComments} size="2x" className="empty-chat-icon"/>
-                        <p>No messages yet. Start the conversation!</p>
+                        <p>No messages yet. Finish the survey or start the conversation right here!</p>
                     </div>
                 )}
                 {messages.map((msg, index) => (
