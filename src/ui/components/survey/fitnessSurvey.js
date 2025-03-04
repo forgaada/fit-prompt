@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sendSurvey } from "../../../redux/actions/surveyActions";
 import _ from "lodash";
+import ProgressBar from "./progressBar";
 
 const FitnessSurvey = () => {
     const [selectedOptions, setSelectedOptions] = useState({});
@@ -48,10 +49,8 @@ const FitnessSurvey = () => {
     return (
         <Container className='d-flex justify-content-center align-items-center survey-form-container'>
             <Form className="survey-form">
+                <ProgressBar currentPage={currentPage} totalPages={totalPages} />
                 <h4 className='mb-4 fw-semibold align-content-center'>Fitness Survey for Prompt Generation</h4>
-                <div className="progress-bar">
-                    <div className="progress" style={{width: `${((currentPage + 1) / totalPages) * 100}%`}}></div>
-                </div>
                 {paginatedQuestions.map((questionObj, qIndex) => (
                     <div key={qIndex} className='d-flex flex-column mb-4'>
                         <Label className="fw-bold mb-3">{questionObj.question}</Label>
