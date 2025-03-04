@@ -19,7 +19,6 @@ const Chatbot = () => {
     const initialSurveySent = useRef(false);
     const dispatch = useDispatch();
 
-    const loggedUser = useSelector((state) => state.user?.user);
     const model = useSelector((state) => state.settings?.settings?.model);
     const survey = useSelector((state) => state.survey?.survey);
 
@@ -100,15 +99,6 @@ const Chatbot = () => {
             .replace(/#{3}\s(.*?)(?=\n|$)/g, '<h3>$1</h3>'); // H3 headers
         return { __html: formattedText };
     };
-
-    if (_.isEmpty(loggedUser)) {
-        return (
-            <div className="chatbot-login-alert">
-                <h2>Please log in</h2>
-                <p>You need to be logged in to access the chatbot feature.</p>
-            </div>
-        );
-    }
 
     return (
         <div className="chatbot">

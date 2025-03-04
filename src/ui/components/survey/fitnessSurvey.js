@@ -2,17 +2,14 @@ import React, { useState } from 'react';
 import {Form, FormGroup, Label, Input, Button, Container} from 'reactstrap';
 import questions from './questions.json';
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { sendSurvey } from "../../../redux/actions/surveyActions";
-import _ from "lodash";
 import ProgressBar from "./progressBar";
 
 const FitnessSurvey = () => {
     const [selectedOptions, setSelectedOptions] = useState({});
     const [currentPage, setCurrentPage] = useState(0);
     const questionsPerPage = 3;
-
-    const loggedUser = useSelector((state) => state.user?.user);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -35,16 +32,6 @@ const FitnessSurvey = () => {
 
     const paginatedQuestions = questions.slice(currentPage * questionsPerPage, (currentPage + 1) * questionsPerPage);
     const totalPages = Math.ceil(questions.length / questionsPerPage);
-    if (_.isEmpty(loggedUser)) {
-        return (
-            <div className="main-content">
-                <div className="chatbot-login-alert">
-                    <h2>Please log in</h2>
-                    <p>You need to be logged in to access the chatbot feature.</p>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <Container className='d-flex justify-content-center align-items-center survey-form-container'>
